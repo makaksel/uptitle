@@ -1,0 +1,62 @@
+extends ../components/mixins/modal.pug
+include ../components/mixins/checkboxButton
+include ../components/mixins/checkbox
+
+block variable
+  - var withFooter = true
+  - var modalName = 'contacts'
+  - var modalBgImage = false
+  - var modalBgPosition = false
+  - var modalBgSize = false
+
+
+block title
+    | Контакты
+
+block body
+    p Предложить свои услуги для наших клиентов или связаться по другому вопросу:
+
+    .contacts
+        p.contacts__line Тел:
+            |
+            a.text-link(href="tel:+78905677890") +7 890 567-78-90
+        p.contacts__line E-mail:
+            a.text-link(href="mailto:info@uptitle.ru") info@uptitle.ru
+        p.contacts__line Tg:
+            a.text-link(href="https://t.me/uptitle" target="_blank") @uptitle
+
+    h3 Форма обратной связи
+
+    form.payment__form(id="contacts")
+        .payment__text-inputs
+            +textInput(
+              '',
+              'Ваше имя',
+              'user',
+              'name',
+              true,
+              true,
+            )
+            +textInput(
+              '',
+              '+ 7 000 000-00-00',
+              'phone',
+              'phone',
+              true,
+              true,
+            )
+            +textInput(
+              '',
+              'example@example.ru',
+              'mail',
+              'email',
+              true,
+              true,
+            )
+
+        +checkbox('personal-data-contacts', true)
+            | Я даю <a href="#" class="text-link">согласие</a> на обработку своих персональных данных согласно <a href="#" class="text-link">Политики в отношении обработки персональных данных</a>
+block footer
+    button.btn.btn-outline.btn-consultation
+        span.hidden-xs Мне нужна консультация
+        span.visible-md Консультация

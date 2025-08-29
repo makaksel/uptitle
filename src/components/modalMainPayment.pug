@@ -1,0 +1,80 @@
+extends ../components/mixins/modal.pug
+include ../components/mixins/checkboxButton
+include ../components/mixins/checkbox
+
+block variable
+  - var withFooter = true
+  - var modalName = 'main'
+  - var modalBgImage = false
+  - var modalBgPosition = false
+  - var modalBgSize = false
+
+
+block title
+    | Публикация статьи
+
+block body
+    p Если Вы уже выбрали услуги вы можете оплатить их, и сразу после оплаты с Вами свяжется наш менеджер и поможет с публикацией и доработкой статьи. Также вы можете просто заказать бесплатную консультацию
+
+    .checkbox-group
+        p.checkbox-group__title Издание:
+        .checkbox-group__table
+            +checkboxButton('upJournalCheck', true) upjournal_
+            +checkboxButton('economicCheck') Экономические науки
+            +checkboxButton('lawCheck') Юридические науки
+            +checkboxButton('philosophyCheck') Философские науки
+            +checkboxButton('historyCheck') Исторические науки
+
+    .checkbox-group
+        p.checkbox-group__title Дополнительные услуги:
+        .checkbox-group__table
+            +checkboxButton('promotionCheck') Продвижение статьи
+            +checkboxButton('consultationCheck') Научная консультация
+            +checkboxButton('editingCheck') Редактура
+            +checkboxButton('formalizationCheck') Оформление
+            +checkboxButton('plagiarism-сheckerCheck') Антиплагиат
+            +checkboxButton('co-authorshipCheck') Соавторство
+
+    form.payment__form(id="persone-form2")
+        input(class="tinkoffPayRow d-none" placeholder="Сумма заказа" value="0" readonly name="amount" type="hidden")
+        .payment__text-inputs
+            +textInput(
+              '',
+              'Ваше имя',
+              'user',
+              'name',
+              true,
+              true,
+            )
+            +textInput(
+              '',
+              '+ 7 000 000-00-00',
+              'phone',
+              'phone',
+              true,
+              true,
+            )
+            +textInput(
+              '',
+              'example@example.ru',
+              'mail',
+              'email',
+              true,
+              true,
+            )
+
+        +checkbox('personal-data', true)
+            | Я даю <a href="#" class="text-link">согласие</a> на обработку своих персональных данных согласно <a href="#" class="text-link">Политики в отношении обработки персональных данных</a>
+        +checkbox('public-offer', true)
+            | Я ознакомился и полностью согласен с правилами <a href="#" class="text-link">публичной оферты</a>
+
+block footer
+    button.btn.btn-outline.btn-consultation(type="button")
+        span.hidden-xs Мне нужна консультация
+        span.visible-md Консультация
+    .payment__actions
+        .price
+            span.price__small
+            span.price__big
+        button.btn.btn-red(type="button" id='onPayButton' disabled) Оплатить
+

@@ -1,0 +1,23 @@
+extends ../components/mixins/modal.pug
+
+block variable
+  - var withFooter = true
+  - var modalName = 'philosophy'
+  - var modalBgImage = 'assets/images/philosophy.png'
+  - var modalBgPosition = false
+  - var modalBgSize = false
+
+block title
+    | Философия
+
+block body
+    p Журнал предназначен для публикации оригинальных научных статей, рецензий, обзоров и других материалов по различным областям юриспруденции.
+    p В журнале публикуются работы, посвященные актуальным вопросам права, судебной практики, правоприменения и другим темам, связанным с юриспруденцией. Журнал является площадкой для дискуссий и обмена мнениями между учеными, практикующими юристами и студентами юридических вузов.
+    p Особое внимание уделяется оригинальности и научной значимости материалов. Цель журнала - содействовать развитию юридической науки и практики в России и за рубежом.
+
+block footer
+    .choice-in-modal
+        .price
+            span.price__small 10 000 Р
+            span.price__big 7 000 Р
+        button.btn.btn-red.choice-in-modal__btn(data-choice-target=modalName) Выбрать

@@ -1,0 +1,51 @@
+.header{
+  background-color: var(--black-minus);
+
+  &__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    padding: rem(37) 0;
+  }
+
+  &__logo{
+    display: flex;
+  }
+
+  &__nav{
+    display: flex;
+    gap: rem(64);
+  }
+
+  &__nav-item{
+    font-size: rem(20);
+    line-height: rem(26);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+}
+
+@include lg {
+  .header{
+    &__content{
+      padding: rem(26) 0;
+    }
+  }
+}
+
+@include sm {
+  .header{
+
+    &__nav{
+      gap: rem(24);
+    }
+
+    &__nav-item{
+      font-size: rem(14);
+      line-height: rem(18);
+    }
+  }
+}
+

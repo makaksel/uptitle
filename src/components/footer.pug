@@ -1,0 +1,13 @@
+include ../components/mixins/stepper
+
+footer.footer
+    .container
+        .footer__content
+            .footer__left
+                +stepper(1)
+            .footer__right
+                .footer__price
+                    span.footer__price-small
+                    span.footer__price-big
+                .footer__action
+                    button.btn.btn-red(data-modal-target='main') Опубликовать статью

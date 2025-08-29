@@ -1,0 +1,8 @@
+mixin stepper(active)
+    .stepper(id='stepper')
+        span(class="stepper__step" class={ "finish": active >= 1 })
+            span.stepper__step-dot
+        span(class="stepper__step" class={ "finish": active >= 2 })
+            span.stepper__step-dot
+        span(class="stepper__step" class={ "finish": active >= 3 })
+            span.stepper__step-dot

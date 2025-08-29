@@ -1,0 +1,25 @@
+mixin card(type, title, image, cardName, disabled)
+    div(class=(!disabled ? 'card' : 'card card_disabled') style={ "background-image": 'url(' + image + ')' }, id=cardName)
+        .card__header
+            .card__addition
+                if type
+                    span.card__addition__left= type
+
+                .card__addition__right
+                    span.card__action-modal(data-modal-target=cardName) Подробнее
+
+
+            if title !== 'logo'
+                p.card__title= title
+            else
+                p.card__logo
+                    svg(viewBox="0 0 135 27" width="135" height="27")
+                        use(xlink:href="#upjournal")
+
+        .card__footer
+            .card__price
+                span.card__price-small 10 900 ₽
+                span.card__price-big 7 800 ₽
+            .card__action
+                button.btn.btn-red.btn-small Выбрать
+

@@ -1,0 +1,236 @@
+.modal {
+  --modal__border-radius: #{rem(32)};
+  --modal__max-width: #{rem(920)};
+  --modal__header-title-size: #{rem(28)};
+  --modal__title-size: #{rem(24)};
+
+  $this: &;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 0;
+  height: 0;
+  overflow: hidden;
+
+  padding: rem(40) rem(52);
+
+  background-color: var(--background-modal);
+
+  transform: translate(-99999px, -99999px);
+  opacity: 0;
+  transition: opacity .2s;
+  z-index: 99;
+
+  &__wrp {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-height: 100%;
+    max-width: var(--modal__max-width);
+    margin: 0 auto;
+
+    background-color: var(--black-plus);
+    border-radius: var(--modal__border-radius);
+
+    transform: translate(0, 1000px);
+    transition: transform .2s .2s;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: rem(10);
+    padding: rem(32) rem(44) rem(36);
+
+    z-index: 2;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: var(--modal__header-title-size);
+    line-height: rem(32);
+    font-weight: $Weight900;
+  }
+
+  &__close {
+    display: flex;
+    cursor: pointer;
+  }
+
+  &__body-wrp {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  &__body {
+    flex: 1 0 auto;
+    position: relative;
+    padding: rem(20) rem(44) rem(82);
+
+
+    h3 {
+      padding: rem(16) 0;
+      font-size: var(--modal__title-size);
+      line-height: rem(32);
+      font-weight: $Weight700;
+      z-index: 2;
+    }
+
+    > p {
+      position: relative;
+      margin-bottom: rem(20);
+      line-height: rem(32);
+
+      svg {
+        position: relative;
+        top: rem(2)
+      }
+    }
+
+    &-bg {
+      position: fixed;
+      top: rem(100);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      opacity: .4;
+
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: bottom center;
+    }
+
+    &:not(:last-child) {
+      padding-bottom: rem(16);
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: auto;
+    padding: rem(32) rem(44) rem(36);
+
+    > * {
+      z-index: 2;
+    }
+
+    .price {
+      display: flex;
+      flex-direction: column;
+
+      &__small {
+        text-decoration-line: line-through;
+        font-size: rem(16);
+        line-height: rem(20);
+        opacity: 0.5;
+      }
+
+      &__big {
+        font-size: rem(32);
+        line-height: rem(41);
+        font-weight: $Weight500;
+      }
+
+      @include xs {
+        &__small {
+          text-decoration-line: line-through;
+          font-size: rem(16);
+          line-height: rem(20);
+          opacity: 0.5;
+        }
+
+        &__big {
+          font-size: rem(24);
+          line-height: rem(31);
+          font-weight: $Weight500;
+        }
+
+      }
+    }
+  }
+
+  &.open {
+    transform: translate(0, 0);
+
+    width: 100%;
+    height: 100vh;
+    opacity: 1;
+    overflow: visible;
+
+    #{$this}__wrp {
+      transform: translate(0, 0);
+    }
+  }
+
+
+  @include xs {
+    --modal__border-radius: 0;
+    --modal__max-width: 100%;
+    --modal__header-title-size: #{rem(24)};
+    --modal__title-size: #{rem(20)};
+
+    padding: 0;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: rem(10);
+      padding: rem(20);
+    }
+
+    &__body {
+      padding: rem(20) rem(20) rem(55);
+
+      &:not(:last-child) {
+        padding-bottom: rem(12);
+      }
+
+    }
+
+    &__footer {
+      padding: rem(32) rem(20);
+
+      .btn {
+        padding: rem(14);
+        font-size: rem(16);
+      }
+
+      .payment__actions {
+        gap: rem(10);
+      }
+
+      .price {
+        &__small {
+          font-size: rem(12);
+        }
+
+        &__big {
+          font-size: rem(18);
+        }
+      }
+    }
+  }
+}
+
+
+.safari {
+  .modal__footer {
+    margin-bottom: rem(90);
+  }
+}

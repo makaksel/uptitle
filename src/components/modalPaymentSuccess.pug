@@ -1,0 +1,19 @@
+extends ../components/mixins/modal.pug
+
+block variable
+  - var withFooter = false
+  - var modalName = 'result-payment-success'
+  - var modalBgImage = false
+  - var modalBgPosition = false
+  - var modalBgSize = false
+  - var openModal = false
+
+block title
+    | Публикация статьи
+
+block body
+    p.payment__result-text.payment__result-text_green
+        svg(viewBox="0 0 27 20" width="27" height="20")
+            use(xlink:href="#check")
+        span Оплата прошла успешно!
+    p Скоро наш менеджер свяжется с Вами и поможет вам максимально быстро опубликовать вашу статью!

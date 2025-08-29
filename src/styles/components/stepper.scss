@@ -1,0 +1,56 @@
+
+.stepper {
+  $this: &;
+
+  width: rem(280);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+  &__step-dot {
+    width: rem(20);
+    height: rem(20);
+    border-radius: 100%;
+
+    background-color: var(--black-minus);
+    z-index: 12;
+    transition: background-color 0.15s;
+  }
+
+  &__step {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &:not(:first-child):before {
+      content: '';
+      position: absolute;
+      flex: 0 0 auto;
+      right: rem(10);
+
+      width: rem(127);
+      height: rem(8);
+
+      background-color: var(--black-minus);
+      transition: background-color 0.15s;
+    }
+
+    &.finish {
+
+      #{$this}__step-dot {
+        background-color: var(--green);
+      }
+
+      &:not(:first-child):before {
+        background-color: var(--green);
+      }
+
+    }
+  }
+
+  @include sm {
+    display: none;
+  }
+
+}

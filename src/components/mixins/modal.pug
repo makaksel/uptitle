@@ -1,0 +1,30 @@
+block variable
+
+- var backgroundImage = modalBgImage ? 'url(' + modalBgImage + ')' : ''
+- var backgroundPosition = modalBgPosition ? modalBgPosition : ''
+- var backgroundSize = modalBgSize ? modalBgSize : ''
+
+div(class=(openModal ? "modal open" : 'modal') data-modal-name=modalName)
+    .modal__wrp
+        .modal__header
+            p.modal__title
+                block title
+            span.modal__close
+                svg(viewBox="0 0 36 36" width="36" height="36")
+                    use(xlink:href="#close")
+        .modal__body-wrp
+            .modal__body
+                if backgroundImage
+                    .modal__body-bg(style={
+                      "background-image": backgroundImage,
+                      "background-position": backgroundPosition,
+                      "background-size": backgroundSize,
+                    })
+                block body
+
+
+            if withFooter
+                .modal__footer
+                    block footer
+
+

@@ -1,0 +1,18 @@
+extends ../components/mixins/modal.pug
+
+block variable
+  - var withFooter = false
+  - var modalName = 'info'
+  - var modalBgImage = 'assets/images/consultation.png'
+  - var modalBgPosition = false
+  - var modalBgSize = false
+
+
+block title
+    | Юридическая информация
+
+block body
+    p
+        | При обнаружении проблем, просим написать на почту:
+        a(href="mailto:info@uptitle.ru" class="text-link")  info@uptitle.ru
+    p ИНН: 631625080247 ОРГНИП: 322631200130634 ИП Мещеров Максим Владимирович

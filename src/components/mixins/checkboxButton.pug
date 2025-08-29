@@ -1,0 +1,13 @@
+mixin checkboxButton(name, disabled)
+    div(class=(!disabled ? 'checkbox-button' : 'checkbox-button checkbox-button_disabled'))
+        label.checkbox-button__label(for=name)
+            input.checkbox-button__input(type='checkbox' name=name id=name, disabled=disabled)
+            span.checkbox-button__content
+                svg(viewBox="0 0 27 20" width="27" height="20")
+                    use(xlink:href="#check")
+                span
+                    block
+
+
+
+

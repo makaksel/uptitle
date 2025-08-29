@@ -1,0 +1,49 @@
+.footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 12;
+  background-color: var(--black-plus);
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    padding: rem(41) 0 rem(37);
+
+    @include lg {
+      padding: rem(21) 0 rem(17);
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: rem(40);
+
+    @include xs {
+      justify-content: flex-end;
+    }
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    font-weight: $Weight500;
+
+    &-small {
+      white-space: nowrap;
+      text-decoration-line: line-through;
+      font-size: rem(16);
+      line-height: rem(21);
+      opacity: 0.5;
+    }
+
+    &-big {
+      white-space: nowrap;
+      font-size: rem(32);
+      line-height: rem(41);
+    }
+  }
+}

@@ -1,0 +1,152 @@
+include ../components/mixins/card
+include ../components/mixins/textInput
+
+
+doctype html
+html(lang='ru')
+    head
+
+        meta(charset='UTF-8')
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        meta(name='viewport' content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        title uptitle
+
+        link(href='assets/css/styles.min.css' rel='stylesheet')
+
+    body(class='page')
+        include ../components/svgSprites
+        include ../components/header
+
+        main.main
+            .container
+                .page-header
+                    h2.page-header__title Сделаем вашу авторскую научную статью известной!
+                    p.page-header__text Вы можете опубликовать вашу научную работу в лучших научных журналах РФ и зарубежных издательствах за 3 простых шага:
+
+                .block.block__one
+                    input(hidden, value, id="publishing-house")
+                    span.block__number 01
+                    p.block__title Выбор издательства
+                    p(class='block__about with-logo') — партнер авторитетных научных издательств и медиаресурсов. Вашу работу сможет оценить аудитория международных наукометрических площадок Scopus и Web of science, а также эксперты и специалисты, читающие журналы из перечня ВАК
+                    div.block__table
+                        +card(
+                          'Медиа',
+                          'logo',
+                          'assets/images/up.png',
+                          'upJournal'
+                        )
+                        +card(
+                          'Издание ВАК',
+                          'Экономические науки',
+                          'assets/images/ecomic.png',
+                          'economic'
+                        )
+                        +card(
+                          'Издание ВАК',
+                          'Юридические науки',
+                          'assets/images/law.png',
+                          'law'
+                        )
+                        +card(
+                          'Издание ВАК',
+                          'Философские науки',
+                          'assets/images/philosophy.png',
+                          'philosophy',
+                        )
+                        +card(
+                          'Издание ВАК',
+                          'Исторические науки',
+                          'assets/images/history.png',
+                          'history',
+                        )
+
+                .block.block__two
+                    input(hidden, value, id="publishing-addition")
+                    span.block__number 02
+                    p.block__title Выбор опций для улучшения статьи
+                    p.block__about Мы сделаем статью интересной, читабельной, поможем найти достаточное количество фактов и подробностей для более полного раскрытия темы, оформим визуальную составляющую — это поможет избежать отказа в публикации
+                    div.block__table
+                        +card(
+                          false,
+                          'Продвижение статьи',
+                          'assets/images/promotion.png',
+                          'promotion'
+                        )
+                        +card(
+                          false,
+                          'Научная консультация',
+                          'assets/images/consultation.png',
+                          'consultation',
+                        )
+                        +card(
+                          false,
+                          'Редактура статьи',
+                          'assets/images/editing.png',
+                          'editing'
+                        )
+                        +card(
+                          false,
+                          'Оформление статьи',
+                          'assets/images/formalization.png',
+                          'formalization'
+                        )
+                        +card(
+                          false,
+                          'Проверка на плагиат',
+                          'assets/images/plagiarism-сhecker.png',
+                          'plagiarism-сhecker',
+                        )
+                        +card(
+                          false,
+                          'Соавторство',
+                          'assets/images/co-authorship.png',
+                          'co-authorship',
+                          true
+                        )
+                .block.block__three
+                    span.block__number 03
+                    p.block__title Отправьте нам ваши контакты и наш специалист свяжется с Вами
+                    form.block__form(id="persone-form")
+                        +textInput(
+                          '',
+                          'Ваше имя',
+                          'user',
+                          'name',
+                        )
+                        +textInput(
+                          '',
+                          '+ 7 000 000-00-00',
+                          'phone',
+                          'phone',
+                        )
+                        +textInput(
+                          '',
+                          'example@example.ru',
+                          'mail',
+                          'email',
+                        )
+
+
+
+        include ../components/footer
+
+        include ../components/modalMainPayment
+        include ../components/modalPaymentSuccess
+        include ../components/modalPaymentFailure
+        include ../components/modalContacts
+        include ../components/modalAbout
+        include ../components/modalInfo
+        include ../components/modalConsultation
+        include ../components/modalPromotion
+        include ../components/modalUpJournal
+        include ../components/modalEconomic
+        include ../components/modalLaw
+        include ../components/modalPhilosophy
+        include ../components/modalHistory
+        include ../components/modalEditing
+        include ../components/modalFormalization
+        include ../components/modalPlagiarismChecker
+        include ../components/modalCoAuthorship
+
+    script(src='https://securepay.tinkoff.ru/html/payForm/js/tinkoff_v2.js')
+    script(src='assets/js/index.js')

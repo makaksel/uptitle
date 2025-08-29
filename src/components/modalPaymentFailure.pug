@@ -1,0 +1,19 @@
+extends ../components/mixins/modal.pug
+
+block variable
+  - var withFooter = false
+  - var modalName = 'result-payment-failure'
+  - var modalBgImage = false
+  - var modalBgPosition = false
+  - var modalBgSize = false
+  - var openModal = false
+
+block title
+    | Публикация статьи
+
+block body
+    p.payment__result-text.payment__result-text_red
+        svg(viewBox="0 0 20 20" width="20" height="20")
+            use(xlink:href="#union")
+        span Что-то пошло не так...
+    p К сожалению оплата не прошла. Попробуйте произвести оплату повторно, или дождитесь когда наш менеджер свяжется с вами и поможет решить возникшие проблемы
